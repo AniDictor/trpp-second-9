@@ -1,13 +1,14 @@
-package ru.mirea.trpp_second_9.controllers;
+package ru.mirea.trppsecond9.controllers;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import ru.mirea.trpp_second_9.entity.Nomenclature;
+import ru.mirea.trppsecond9.entity.Nomenclature;
 
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 /** Контроллер для работы с номенклатурами. */
@@ -19,7 +20,11 @@ public class NomenclatureController {
 
     /** Конструктор. */
     public NomenclatureController() {
-        nomenclatureList = new CsvToBeanBuilder<Nomenclature>(new InputStreamReader(this.getClass().getResourceAsStream("/MOCK_DATA.csv"))).withType(Nomenclature.class).build().parse();
+        nomenclatureList = new CsvToBeanBuilder<Nomenclature>(
+                new InputStreamReader(
+                        Objects.requireNonNull(
+                                this.getClass().getResourceAsStream("/MOCK_DATA.csv")))
+        ).withType(Nomenclature.class).build().parse();
     }
 
     /**

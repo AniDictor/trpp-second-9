@@ -1,10 +1,12 @@
-package ru.mirea.trpp_second_9.entity;
+package ru.mirea.trppsecond9.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.opencsv.bean.CsvBindByName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.math.BigDecimal;
 
 
 /** Сущность Номенклатуры. */
